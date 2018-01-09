@@ -17,9 +17,12 @@
          <hr>
          <div class="speaker"></div>
 
-<audio id="player">
-    <source src="Doki_Doki_Literature_Club!_OST_Disc_1_-_10_Sayo-nara.mp3" />
-</audio>
+function playMusic(){
+  var music = new Audio('musicfile.mp3');
+  music.play();
+  }
+          
+<input type="button" value="sound" onclick="playMusic()" />
          <h1><b><i> Natsuki is the best girl! </i></b></h1>
        <img src="http://cloud-3.steamusercontent.com/ugc/875249706612441800/55C8ADBB97F77825212C8189E84348508E82D61D/?interpolation=lanczos-none&output-format=jpeg&output-quality=95&fit=inside%7C1024%3A*">
  </body>

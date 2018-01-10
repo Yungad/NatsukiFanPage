@@ -16,36 +16,18 @@
     <img src="https://pre00.deviantart.net/6cef/th/pre/f/2018/001/b/7/natsuki_hd_render__doki_doki_literature_club__by_thekarmaking-dbyl83p.png">        
          <h1><b><i> Natsuki is the best girl! </i></b></h1>
 Doki_Doki_Literature_Club!_OST_Disc_1_-_10_Sayo-nara.mp3
- <audio preload="auto">
-    <source src="Doki_Doki_Literature_Club!_OST_Disc_1_-_10_Sayo-nara.mp3"></source>
-</audio>
-      var addClickSound = function (kb) {
-    // only need to run this code once per keyboard
-    if (!kb.$keyboard.find('.mute').length) {
-        var clicky = $('#clicky')[0];
-        kb.isMuted = false;
-        // add mute button inside keyboard, but outside of the keysets
-        $('<button class="mute">mute</button>').appendTo(kb.$keyboard);
-        kb.$keyboard.find('.mute').on('click', function () {
-            // toggle clicky noise
-            kb.isMuted = !kb.isMuted;
-            clicky.muted = kb.isMuted;
-            $(this).text(kb.isMuted ? 'unmute' : 'mute');
-        });
-        // target ALL keys for clicky time!
-        kb.$allKeys.on('mousedown.audio', function () {
-            // play clicky noise
-            clicky.pause();
-            clicky.play();
-        });
-    }
-};
+<img id="la-imagen" src="https://pbs.twimg.com/profile_images/737359467742912512/t_pzvyZZ.jpg" alt="La descripcion de la imagen" />
 
-$('#keyboard').keyboard({
-    visible: function (e, keyboard, el) {
-        // set up clicky noise after keyboard has been rendered and visible
-        addClickSound(keyboard);
-    }
+<audio id="el-audio">
+  <source src="https://css-tricks.com/examples/SoundOnHover/audio/beep.mp3"></source>
+  <source src="https://css-tricks.com/examples/SoundOnHover/audio/beep.ogg"></source>
+Your browser isn't invited for super fun audio time.
+</audio>
+<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+<script>var audio = $('#el-audio')[0];
+$('#la-imagen').mouseenter(function () {
+    console.log('Hola');
+    audio.play();
 });
        <img src="http://cloud-3.steamusercontent.com/ugc/875249706612441800/55C8ADBB97F77825212C8189E84348508E82D61D/?interpolation=lanczos-none&output-format=jpeg&output-quality=95&fit=inside%7C1024%3A*">
  </body>

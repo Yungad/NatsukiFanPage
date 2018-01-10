@@ -15,9 +15,38 @@
     <img src="https://i.redd.it/22425fevd4tz.png">
     <img src="https://pre00.deviantart.net/6cef/th/pre/f/2018/001/b/7/natsuki_hd_render__doki_doki_literature_club__by_thekarmaking-dbyl83p.png">        
          <h1><b><i> Natsuki is the best girl! </i></b></h1>
-<audio id="sound1" src="Doki_Doki_Literature_Club!_OST_Disc_1_-_10_Sayo-nara.mp3" preload="auto"></audio>
-  <button onclick="document.getElementById('sound1').play();">Play
-  it</button>
+Doki_Doki_Literature_Club!_OST_Disc_1_-_10_Sayo-nara.mp3
+ <audio preload="auto">
+    <source src="Doki_Doki_Literature_Club!_OST_Disc_1_-_10_Sayo-nara.mp3"></source>
+</audio>
+      var addClickSound = function (kb) {
+    // only need to run this code once per keyboard
+    if (!kb.$keyboard.find('.mute').length) {
+        var clicky = $('#clicky')[0];
+        kb.isMuted = false;
+        // add mute button inside keyboard, but outside of the keysets
+        $('<button class="mute">mute</button>').appendTo(kb.$keyboard);
+        kb.$keyboard.find('.mute').on('click', function () {
+            // toggle clicky noise
+            kb.isMuted = !kb.isMuted;
+            clicky.muted = kb.isMuted;
+            $(this).text(kb.isMuted ? 'unmute' : 'mute');
+        });
+        // target ALL keys for clicky time!
+        kb.$allKeys.on('mousedown.audio', function () {
+            // play clicky noise
+            clicky.pause();
+            clicky.play();
+        });
+    }
+};
+
+$('#keyboard').keyboard({
+    visible: function (e, keyboard, el) {
+        // set up clicky noise after keyboard has been rendered and visible
+        addClickSound(keyboard);
+    }
+});
        <img src="http://cloud-3.steamusercontent.com/ugc/875249706612441800/55C8ADBB97F77825212C8189E84348508E82D61D/?interpolation=lanczos-none&output-format=jpeg&output-quality=95&fit=inside%7C1024%3A*">
  </body>
 </html>
